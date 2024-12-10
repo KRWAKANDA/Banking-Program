@@ -1,0 +1,61 @@
+#Python Banking Program
+
+def show_balance():
+    print("**************")
+    print(f"Your balance is R{balance:.2f}")
+    print("**************")
+
+def deposit():
+    amount = float(input("Enter an amount to be deposited: "))
+    
+    if amount < 0:
+        print("**************")
+        print("Thats not a valid amount")
+        print("**************")
+        return 0
+    else:
+        return amount
+    
+def withdraw():
+    amount =float(input("enter amount to be withrawn: "))
+ 
+    if amount > balance:
+       print("insufficient funds")
+       return 0
+       
+    elif amount < 0:
+        print("Amount must be grater than 0")
+        return 0
+    else:
+        return amount
+
+balance = 0
+is_running = True
+
+while is_running:
+    print("**************")
+    print("     Banking program")
+    print("**************")
+    print("1.show Balance")
+    print("**************")
+    print("2.Deposit")
+    print("**************")
+    print("3.withdraw")
+    print("**************")
+    print("4.exit")
+    
+    choice = input("Enter your choice (1-4:):")
+    
+    if choice == '1':
+        show_balance()
+    elif choice == '2':
+        balance += deposit()
+    elif choice == '3':
+        balance -= withdraw()
+    elif choice == '4':
+        is_running = False
+    else:
+        print("That is not a invalid choice")
+
+print("**************")        
+print("Thank you! Have a nice day!")
